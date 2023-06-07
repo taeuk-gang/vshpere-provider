@@ -26,7 +26,7 @@ data "template_file" "script" {
   template = file("user-data.tpl")
 
   vars = {
-    public_key = var.vm_public_key
+    public_key = var.public_key
   }
 }
 
@@ -68,7 +68,7 @@ resource "vsphere_virtual_machine" "vm" {
   vapp {
     properties = {
       "hostname" = "${var.vm_name}${var.vm_domain}"
-      "public-keys" = var.vm_public_key
+      "public-keys" = var.public_key
       "user-data" = data.template_cloudinit_config.config.rendered
       "password" = var.vm_password
     }
