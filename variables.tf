@@ -32,7 +32,6 @@ variable "vm_public_key" {
 variable "vm_password" {
   type = string
   default = "Ubuntu@123"
-  sensitive   = true
 }
 
 variable "vm_net" {
