@@ -32,7 +32,6 @@ variable "vm_public_key" {
 variable "vm_password" {
   type = string
   default = "Ubuntu@123"
-  sensitive   = true
 }
 
 variable "vm_net" {
@@ -63,7 +62,6 @@ variable "vsphere_user" {
 variable "vsphere_password" {
   type    = string
   default = "Vmware@123"
-  sensitive   = true
 }
 
 variable "vsphere_server" {
