@@ -26,7 +26,7 @@ data "template_file" "script" {
   template = file("user-data.tpl")
 
   vars = {
-    public_key = var.vm_public_key
+    public_key = var.public_key
   }
 }
 
