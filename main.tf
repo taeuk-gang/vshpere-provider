@@ -68,7 +68,7 @@ resource "vsphere_virtual_machine" "vm" {
   vapp {
     properties = {
       "hostname" = "${var.vm_name}${var.vm_domain}"
-      "public-keys" = var.vm_public_key
+      "public-keys" = var.public_key
       "user-data" = data.template_cloudinit_config.config.rendered
       "password" = var.vm_password
     }
