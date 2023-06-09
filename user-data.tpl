@@ -2,7 +2,7 @@ groups:
   - docker
 users:
   - default
-  - name: hobbyfarm
+  - name: ${user_name}
     ssh-authorized-keys:
       - ssh-rsa ${public_key}
     sudo: ALL=(ALL) NOPASSWD:ALL
