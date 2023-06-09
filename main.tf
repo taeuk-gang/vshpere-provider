@@ -27,6 +27,7 @@ data "template_file" "script" {
 
   vars = {
     public_key = var.public_key
+    user_name = var.ssh_username
   }
 }
 
