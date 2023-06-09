@@ -43,7 +43,7 @@ data "template_cloudinit_config" "config" {
 }
 
 resource "vsphere_virtual_machine" "vm" {
-  name             = var.vm_name
+  name             = var.name
   resource_pool_id = data.vsphere_resource_pool.pool.id
   datastore_id     = data.vsphere_datastore.datastore.id
   num_cpus         = var.vm_cpu
@@ -67,7 +67,7 @@ resource "vsphere_virtual_machine" "vm" {
   }
   vapp {
     properties = {
-      "hostname" = "${var.vm_name}${var.vm_domain}"
+      "hostname" = "${var.name}${var.vm_domain}"
       "public-keys" = var.public_key
       "user-data" = data.template_cloudinit_config.config.rendered
       "password" = var.vm_password
