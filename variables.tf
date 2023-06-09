@@ -4,7 +4,7 @@
 #  default = ""
 #}
 
-variable "vm_name" {
+variable "name" {
   type    = string
   default = "sample-node"
 }
