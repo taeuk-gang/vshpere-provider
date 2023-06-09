@@ -28,6 +28,7 @@ data "template_file" "script" {
   vars = {
     public_key = var.public_key
     user_name = var.ssh_username
+    user_password = var.vm_password
   }
 }
 

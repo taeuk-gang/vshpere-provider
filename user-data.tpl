@@ -4,13 +4,13 @@ chpasswd:
   expire: false
   users:
     - name: ${user_name}
-      password: password1
+      password: ${user_password}
       type: text  
 users:
   - default
   - name: ${user_name}
     ssh-authorized-keys:
-      - ssh-rsa ${public_key}
+      - ${public_key}
     sudo: ALL=(ALL) NOPASSWD:ALL
     lock-passwd: false
     groups: sudo, docker
