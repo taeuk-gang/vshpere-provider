@@ -10,5 +10,5 @@ output "public_ip" {
 
 output "hostname" {
   description = "The default IP address of the virtual machine deployed"
-  value = var.vm_name 
+  value = var.name 
 }
