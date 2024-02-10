@@ -53,6 +53,7 @@ data "template_cloudinit_config" "config" {
 
 resource "vsphere_virtual_machine" "vm" {
   name             = var.name
+  firmware         = "efi"
   resource_pool_id = data.vsphere_resource_pool.pool.id
   # resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
   datastore_id     = data.vsphere_datastore.datastore.id
