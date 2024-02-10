@@ -7,20 +7,20 @@ data "vsphere_datastore" "datastore" {
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
 
-data "vsphere_compute_cluster" "cluster" {
-  name          = var.vsphere_cluster
-  datacenter_id = data.vsphere_datacenter.datacenter.id
-}
+# data "vsphere_compute_cluster" "cluster" {
+#   name          = var.vsphere_cluster
+#   datacenter_id = data.vsphere_datacenter.datacenter.id
+# }
 
 data "vsphere_resource_pool" "pool" {
   name          = var.vsphere_resource_pool
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
 
-data "vsphere_host" "host" {
-  name          = var.vm_host
-  datacenter_id = data.vsphere_datacenter.datacenter.id
-}
+# data "vsphere_host" "host" {
+#   name          = var.vm_host
+#   datacenter_id = data.vsphere_datacenter.datacenter.id
+# }
 
 data "vsphere_network" "network" {
   name          = var.vm_net
@@ -53,8 +53,8 @@ data "template_cloudinit_config" "config" {
 
 resource "vsphere_virtual_machine" "vm" {
   name             = var.name
-  # resource_pool_id = data.vsphere_resource_pool.pool.id
-  resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
+  resource_pool_id = data.vsphere_resource_pool.pool.id
+  # resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
   datastore_id     = data.vsphere_datastore.datastore.id
   num_cpus         = var.vm_cpu
   memory           = var.vm_mem
