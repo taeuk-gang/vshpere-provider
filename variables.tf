@@ -13,9 +13,9 @@ variable "vm_mem" {
  default = "4096"
 }
 
-variable "vm_domain" {
+variable "vm_host" {
   type    = string
-  default = ".domain"
+  default = "host"
 }
 
 variable "public_key" {
