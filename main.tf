@@ -39,7 +39,6 @@ data "template_cloudinit_config" "config" {
     content_type = "text/cloud-config"
     content      = data.template_file.script.rendered
   }
-
 }
 
 resource "vsphere_virtual_machine" "vm" {
@@ -69,7 +68,7 @@ resource "vsphere_virtual_machine" "vm" {
     properties = {
       "hostname" = "${var.name}${var.vm_domain}"
       "public-keys" = var.public_key
-      "user-data" = data.template_cloudinit_config.config.rendered
+      "user-data" = var.userdata
       "password" = var.vm_password
     }
   }
