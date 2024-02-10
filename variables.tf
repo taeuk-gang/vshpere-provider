@@ -1,9 +1,3 @@
-# Var template
-#variable "" {
-#  type = string
-#  default = ""
-#}
-
 variable "name" {
   type    = string
   default = "sample-node"
@@ -80,4 +74,8 @@ variable "vsphere_cluster" {
 variable "vsphere_resource_pool" {
   type = string
   default = "resourcePool"
+}
+variable "userdata" {
+  type = string
+  default = ""
 }
