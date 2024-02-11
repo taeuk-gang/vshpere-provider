@@ -33,7 +33,7 @@ data "vsphere_virtual_machine" "template" {
 }
 
 data "template_file" "script" {
-  template = file("cloud-config.tpl")
+  template = var["cloud-config"]
   vars = {
     public_key = var.public_key
     user_name = var.ssh_username
@@ -80,7 +80,7 @@ resource "vsphere_virtual_machine" "vm" {
     properties = {
       "hostname" = var.name
       "public-keys" = var.public_key
-      "user-data" = data.template_cloudinit_config.config.rendered
+      "user-data" = base64encode(var["cloud-config"])
       "password" = var.vm_password
     }
   }
