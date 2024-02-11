@@ -80,7 +80,7 @@ resource "vsphere_virtual_machine" "vm" {
     properties = {
       "hostname" = var.vm_host
       "public-keys" = var.public_key
-      "user-data" = data.template_cloudinit_config.config.rendered
+      "user-data" = var.userdata
       "password" = var.vm_password
     }
   }
