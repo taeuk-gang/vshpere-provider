@@ -32,25 +32,25 @@ data "vsphere_virtual_machine" "template" {
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
 
-# data "template_file" "script" {
-#   template = file("cloud-config.tpl")
-#   vars = {
-#     public_key = var.public_key
-#     user_name = var.ssh_username
-#     user_password = var.vm_password
-#   }
-# }
+data "template_file" "script" {
+  template = file("cloud-config.tpl")
+  vars = {
+    public_key = var.public_key
+    user_name = var.ssh_username
+    user_password = var.vm_password
+  }
+}
 
-# data "template_cloudinit_config" "config" {
-#   gzip          = true
-#   base64_encode = true
+data "template_cloudinit_config" "config" {
+  gzip          = true
+  base64_encode = true
 
-#   # Main cloud-config configuration file.
-#   part {
-#     content_type = "text/cloud-config"
-#     content      = data.template_file.script.rendered
-#   }
-# }
+  # Main cloud-config configuration file.
+  part {
+    content_type = "text/cloud-config"
+    content      = data.template_file.script.rendered
+  }
+}
 
 resource "vsphere_virtual_machine" "vm" {
   name             = var.name
