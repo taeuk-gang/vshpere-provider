@@ -79,7 +79,7 @@ resource "vsphere_virtual_machine" "vm" {
   }
   vapp {
     properties = {
-      "hostname" = "${var.name}${var.vm_domain}"
+      "hostname" = "${var.name}.${var.vm_host}"
       "public-keys" = var.public_key
       "user-data" = var.userdata
       "password" = var.vm_password
