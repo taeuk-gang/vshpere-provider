@@ -33,7 +33,7 @@ data "vsphere_virtual_machine" "template" {
 }
 
 data "template_file" "script" {
-  template = var.userdata
+  template = "${file("cloud-config.tpl")}"
   vars = {
     public_key = var.public_key
     user_name = var.ssh_username
