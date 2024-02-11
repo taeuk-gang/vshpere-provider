@@ -70,12 +70,15 @@ resource "vsphere_virtual_machine" "vm" {
     size             = data.vsphere_virtual_machine.template.disks.0.size
     thin_provisioned = data.vsphere_virtual_machine.template.disks.0.thin_provisioned
   }
+  cdrom {
+    client_device = true
+  }
   clone {
     template_uuid = data.vsphere_virtual_machine.template.id
   }
   vapp {
     properties = {
-      "hostname" = "${var.name}.${var.vm_host}"
+      "hostname" = var.name
       "public-keys" = var.public_key
       "user-data" = data.template_cloudinit_config.config.rendered
       "password" = var.vm_password
