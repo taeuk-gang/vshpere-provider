@@ -71,8 +71,8 @@ resource "vsphere_virtual_machine" "vm" {
     thin_provisioned = data.vsphere_virtual_machine.template.disks.0.thin_provisioned
   }
   extra_config {
-    "guestinfo.userdata.encoding" = "gzip+base64"
-    "guestinfo.userdata" = var.userdata
+    guestinfo.userdata.encoding = "gzip+base64"
+    guestinfo.userdata = var.userdata
   }
   clone {
     template_uuid = data.vsphere_virtual_machine.template.id
