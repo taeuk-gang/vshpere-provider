@@ -70,9 +70,9 @@ resource "vsphere_virtual_machine" "vm" {
     size             = data.vsphere_virtual_machine.template.disks.0.size
     thin_provisioned = data.vsphere_virtual_machine.template.disks.0.thin_provisioned
   }
-  cdrom {
-    client_device = true
-  }
+  # cdrom {
+  #   client_device = true
+  # }
   clone {
     template_uuid = data.vsphere_virtual_machine.template.id
   }
