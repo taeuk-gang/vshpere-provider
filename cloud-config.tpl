@@ -1,9 +1,9 @@
 #cloud-config
 users:
   - default
-  - name: ubuntu
+  - name: rocky
     ssh-authorized-keys:
       - ${public_key}
     sudo: ALL=(ALL) NOPASSWD:ALL
-    groups: sudo, docker
+    groups: sudo
     shell: /bin/bash
