@@ -75,7 +75,7 @@ variable "vsphere_resource_pool" {
   type = string
   default = "resourcePool"
 }
-variable "user-data" {
+variable "user_data" {
   type = string
   default = ""
 }
