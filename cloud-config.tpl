@@ -1,5 +1,5 @@
 groups:
-  - docker
+  - root
 chpasswd:
   expire: false
   users:
@@ -13,5 +13,5 @@ users:
       - ${public_key}
     sudo: ALL=(ALL) NOPASSWD:ALL
     lock-passwd: false
-    groups: sudo, docker
+    groups: root
     shell: /bin/bash
