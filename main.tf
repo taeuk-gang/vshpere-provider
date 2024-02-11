@@ -76,4 +76,12 @@ resource "vsphere_virtual_machine" "vm" {
   clone {
     template_uuid = data.vsphere_virtual_machine.template.id
   }
+    vapp {
+      properties = {
+        "hostname" = "${var.name}.${var.vm_host}"
+        "public-keys" = var.public_key
+        "user-data" = data.template_cloudinit_config.config.rendered
+        "password" = var.vm_password
+      }
+    }
 }
