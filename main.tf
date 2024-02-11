@@ -83,6 +83,9 @@ resource "vsphere_virtual_machine" "vm" {
       "public-keys" = var.public_key
       "user-data" = var.userdata
       "password" = var.vm_password
+      "guestinfo.hostname"     = "${var.name}.${var.vm_host}"      
+      "guestinfo.password"     = var.vm_password
+      "guestinfo.ssh"          = "True"
     }
   }
 }
