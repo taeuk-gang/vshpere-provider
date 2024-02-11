@@ -55,8 +55,8 @@ data "template_cloudinit_config" "config" {
 resource "vsphere_virtual_machine" "vm" {
   name             = var.name
   firmware         = "efi"
+  wait_for_guest_net_timeout = -1
   resource_pool_id = data.vsphere_resource_pool.pool.id
-  # resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
   datastore_id     = data.vsphere_datastore.datastore.id
   num_cpus         = var.vm_cpu
   memory           = var.vm_mem
